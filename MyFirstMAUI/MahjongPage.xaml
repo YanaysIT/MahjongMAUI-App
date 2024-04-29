@@ -4,30 +4,35 @@
              x:Class="MyFirstMAUI.MahjongPage">
     <Grid BackgroundColor="#708781">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="90" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
-        <Button Grid.Column="0" Text="New Game" WidthRequest="100" HeightRequest="20" HorizontalOptions="End" VerticalOptions="Start" Margin="5" 
+        <Label Grid.Row="0" x:Name="GameStatus" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" FontAttributes="Bold"
+                FontAutoScalingEnabled="True" TextColor="Black" ZIndex="3"/>
+        
+        <Button Grid.Row="0" Text="New Game" HeightRequest="20" HorizontalOptions="End" VerticalOptions="Start" Margin="5" 
          BackgroundColor="#8D0801"
          Clicked="OnNewGameClicked"/>
         
-        <CollectionView Grid.Row="1" x:Name="MahjongDataView" ItemsLayout="HorizontalGrid,4" HorizontalOptions="Center" ZIndex="1" 
-                        IsEnabled="True" WidthRequest="370" HeightRequest="470"
+        <Label Grid.Row="1" x:Name="Attempts" HorizontalOptions="Center" VerticalOptions="Start" FontSize="Small" FontAttributes="Bold"
+        FontAutoScalingEnabled="True" TextColor="Black" ZIndex="3"/>
+
+
+        <CollectionView Grid.Row="2" x:Name="MahjongDataView" ItemsLayout="HorizontalGrid,4" HorizontalOptions="Center" ZIndex="1" 
+                        IsEnabled="True" WidthRequest="362" HeightRequest="480" Margin="3"
                         SelectionMode="Single" SelectionChanged="MahjongDataView_SelectionChanged" 
                         >
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <VerticalStackLayout Padding="5" BackgroundColor="#001422">
+                    <StackLayout Padding="5" BackgroundColor="#001422">
                         <Image Source="{Binding UrlShow }" WidthRequest="80" HeightRequest="108"/>
-                    </VerticalStackLayout>
+                    </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Label x:Name="GameStatus" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Header" FontAttributes="Bold"
-               HorizontalTextAlignment="Center"
-               FontAutoScalingEnabled="True" TextColor="Black" ZIndex="3"/>
-
     </Grid>
 </ContentPage>
     

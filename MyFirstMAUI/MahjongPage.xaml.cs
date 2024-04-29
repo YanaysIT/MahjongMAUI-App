@@ -7,7 +7,9 @@ namespace MyFirstMAUI
         private List<MahjongCard> _mahjongCards = new();
         private List<MahjongCard> _selectedCards = new();
         private string? _gameStatusMessage;
+        private string? _attemptsMessage;
         private int _paired;
+        private int _numberOfAttempts;
 
         public MahjongPage()
         {
@@ -20,10 +22,11 @@ namespace MyFirstMAUI
         public void InitializeGame()
         {
             _paired = 0;
+            _numberOfAttempts = 0;
             _mahjongCards = GetMahjong();
             MahjongDataView.ItemsSource = _mahjongCards;
-            _gameStatusMessage = string.Empty;
-            GameStatus.Text = _gameStatusMessage;
+            GameStatus.Text = string.Empty;
+            Attempts.Text = string.Empty;
         }
         
         List<MahjongCard> GetMahjong()
@@ -42,7 +45,6 @@ namespace MyFirstMAUI
 
         private async void MahjongDataView_SelectionChanged(object? sender, SelectionChangedEventArgs e)
         {
-            Console.WriteLine("event triggered");
             if (sender is not null && e is not null)
             {
                 if (e.CurrentSelection.LastOrDefault() is not MahjongCard card)
@@ -58,6 +60,7 @@ namespace MyFirstMAUI
 
                 if (_selectedCards.Count == 2)
                 {
+                    _numberOfAttempts++;
                     isAMatch = CheckMatch();
                 }
                 else
@@ -75,8 +78,10 @@ namespace MyFirstMAUI
 
                     if (_paired == _mahjongCards.Count)
                     {
-                        _gameStatusMessage = "Congratulations!\nYou win!";
+                        _gameStatusMessage = $"You win!";
                         GameStatus.Text = _gameStatusMessage;
+                        _attemptsMessage= $"Number of Attempts: {_numberOfAttempts}";
+                        Attempts.Text= _attemptsMessage;
                     }
                     return;
                 }
