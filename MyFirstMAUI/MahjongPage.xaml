@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyFirstMAUI.MahjongPage">
+    <Grid BackgroundColor="#708781">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Button Grid.Column="0" Text="New Game" WidthRequest="100" HeightRequest="20" HorizontalOptions="End" VerticalOptions="Start" Margin="5" 
+         BackgroundColor="#8D0801"
+         Clicked="OnNewGameClicked"/>
+        
+        <CollectionView Grid.Row="1" x:Name="MahjongDataView" ItemsLayout="HorizontalGrid,4" HorizontalOptions="Center" ZIndex="1" 
+                        IsEnabled="True" WidthRequest="370" HeightRequest="470"
+                        SelectionMode="Single" SelectionChanged="MahjongDataView_SelectionChanged" 
+                        >
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Padding="5" BackgroundColor="#001422">
+                        <Image Source="{Binding UrlShow }" WidthRequest="80" HeightRequest="108"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Label x:Name="GameStatus" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Header" FontAttributes="Bold"
+               HorizontalTextAlignment="Center"
+               FontAutoScalingEnabled="True" TextColor="Black" ZIndex="3"/>
+
+    </Grid>
+</ContentPage>
+    
+

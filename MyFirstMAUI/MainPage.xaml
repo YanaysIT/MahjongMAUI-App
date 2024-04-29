@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyFirstMAUI.MainPage">
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+
+        <Label x:Name="Greetings" Text="Welcome to my first MAUI"
+               FontSize="20"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"/>
+
+        <Button Text="Surprise Me"
+                MaximumWidthRequest="150"
+                Margin="10"
+                BackgroundColor="DarkSeaGreen"
+                Clicked="OnSurpriseMeClicked"
+                />
+    </StackLayout>
+</ContentPage>
+    
+
