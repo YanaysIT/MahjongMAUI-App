@@ -17,7 +17,7 @@
          BackgroundColor="#8D0801"
          Clicked="OnNewGameClicked"/>
         
-        <Label Grid.Row="1" x:Name="Attempts" HorizontalOptions="Center" VerticalOptions="Start" FontSize="Small" FontAttributes="Bold"
+        <Label Grid.Row="1" x:Name="Attempts" HorizontalOptions="Center" VerticalOptions="Start" FontSize="Default" FontAttributes="Bold"
         FontAutoScalingEnabled="True" TextColor="Black" ZIndex="3"/>
 
 

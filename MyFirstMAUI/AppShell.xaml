@@ -10,9 +10,4 @@
     <ShellContent Title="Mahjong"  
                   ContentTemplate="{DataTemplate local:MahjongPage}"
                   Route="MahjongPage" />
-    
-    <ShellContent
-        Title="Clicker Star"      
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
 </Shell>
